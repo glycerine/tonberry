@@ -4,6 +4,26 @@ import (
 	"github.com/zeroshade/Go-SDL/sdl"
 )
 
+type Screen struct {
+	*sdl.Surface
+}
+
+type Event interface {
+	sdl.Event
+}
+
+type QuitEvent struct {
+	*sdl.QuitEvent
+}
+
+type KeyboardEvent struct {
+	*sdl.KeyboardEvent
+}
+
+func MapRGB(game Game, r, g, b uint8) uint32 {
+	return sdl.MapRGB(game.GetScreen().Format, r, g, b)
+}
+
 func load_image(file string) *sdl.Surface {
 	loadedImage := sdl.Load(file)
 	var optimizedImg *sdl.Surface
