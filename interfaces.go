@@ -14,5 +14,7 @@ type GameObject interface {
 	Update(deltaTicks uint32)
 	ResetMovement()
 	HandleInput(KeyboardEvent)
+	SetCamera(*Camera, string)
 	Draw(Screen)
+	DrawCam(Screen, Camera)
 }

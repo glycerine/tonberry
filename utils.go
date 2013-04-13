@@ -2,7 +2,18 @@ package tonberry
 
 import (
 	"github.com/zeroshade/Go-SDL/sdl"
+	"image"
 )
+
+type Camera struct {
+	sdl.Rect
+}
+
+func NewCamera(bounds image.Rectangle) Camera {
+	var c Camera
+	c.Rect = sdl.RectFromGoRect(bounds)
+	return c
+}
 
 type Screen struct {
 	*sdl.Surface
