@@ -4,10 +4,17 @@ import (
 	"github.com/zeroshade/tonberry"
 )
 
+const (
+	LEVEL_WIDTH  = 640
+	LEVEL_HEIGHT = 480
+)
+
 func main() {
-	g := tonberry.NewGame("Test", 640, 480, 32, false)
+	g := tonberry.NewGame("Test", LEVEL_WIDTH, LEVEL_HEIGHT, 32, false)
 
 	time := tonberry.NewTimer()
+	g.ChangeState(&menu)
+
 	time.Start()
 
 	for g.IsRunning() {
